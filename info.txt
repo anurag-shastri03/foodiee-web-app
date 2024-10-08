@@ -1,0 +1,7 @@
+cluster name => gofood
+
+username => anurag
+password => admin
+
+database name => gofoodmern
+collection name => sample
