@@ -1,5 +1,10 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+echo "firebase-debug.log" >> .gitignore
+git add .gitignore
+git commit -m "Ignore firebase-debug.log"
+
+
 # dependencies
 node_modules
 /.pnp
