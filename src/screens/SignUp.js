@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Link , useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp() {
-
   let navigate = useNavigate();
   const [credentials, setcredentials] = useState({
     name: "",
@@ -30,8 +29,7 @@ export default function SignUp() {
 
     if (!json.success) {
       alert("Enter Valid Credentials");
-    }
-    else{
+    } else {
       navigate("/login");
     }
   };
@@ -41,76 +39,71 @@ export default function SignUp() {
   };
 
   return (
-    <>
-      <div className="container">
+    <div className="d-flex justify-content-center align-items-center vh-100 bg-gradient">
+      <div className="card p-4 shadow-lg border-0 glass-card">
+        <h2 className="text-center mb-4 text-primary fw-bold">Create an Account</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              User Name
-            </label>
+            <label className="form-label fw-semibold">User Name</label>
             <input
               type="text"
-              className="form-control"
+              className="form-control rounded-pill"
               name="name"
               value={credentials.name}
               onChange={onChange}
+              required
             />
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              Email address
-            </label>
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label fw-semibold">Email Address</label>
             <input
               type="email"
-              className="form-control"
-              id="exampleInputEmail"
-              aria-describedby="emailHelp"
+              className="form-control rounded-pill"
               name="email"
               value={credentials.email}
               onChange={onChange}
+              required
             />
-            <div id="emailHelp" className="form-text">
-              We'll never share your email with anyone else.
-            </div>
+            <div className="form-text">We'll never share your email with anyone else.</div>
           </div>
+
           <div className="mb-3">
-            <label htmlFor="exampleInputPassword" className="form-label">
-              Password
-            </label>
+            <label className="form-label fw-semibold">Password</label>
             <input
               type="password"
-              className="form-control"
-              
+              className="form-control rounded-pill"
               name="password"
               value={credentials.password}
               onChange={onChange}
+              required
             />
           </div>
+
           <div className="mb-3">
-            <label htmlFor="exampleInputLocation" className="form-label">
-              Address
-            </label>
+            <label className="form-label fw-semibold">Address</label>
             <input
               type="text"
-              className="form-control"
-              
+              className="form-control rounded-pill"
               name="geolocation"
               value={credentials.geolocation}
               onChange={onChange}
+              required
             />
           </div>
-          {/* <div className="mb-3 form-check">
-          <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-          <label className="form-check-label" htmlFor="exampleCheck1">
-            Check me out
-          </label>
-        </div> */}
-          <button type="submit" className="m-3 btn btn-success">
-            Submit
+
+          <button type="submit" className="btn btn-success w-100 rounded-pill shadow-sm">
+            Sign Up
           </button>
-          <Link to="/login" className=" m-3 btn btn-danger">
-            Alrady a user?
-          </Link>
+
+          <p className="text-center mt-3">
+            Already have an account?{" "}
+            <Link to="/login" className="text-decoration-none fw-bold text-danger">
+              Login
+            </Link>
+          </p>
         </form>
       </div>
-    </>
+    </div>
   );
 }

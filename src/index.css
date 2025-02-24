@@ -23,3 +23,42 @@ code {
 .carousel-inner{
   object-fit:"contain !important";
 }
+
+
+.glass-card h2 {
+  font-size: 1.8rem;
+}
+
+/* Button hover effect */
+.btn-primary {
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #28a745;
+  transform: scale(1.05);
+}
+/* Gradient background */
+.bg-gradient {
+  background: linear-gradient(135deg,#28a745, #1ea33d);
+}
+
+/* Glassmorphism effect for the card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  width: 350px;
+}
+
+/* Button hover effect */
+.btn-success {
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-success:hover {
+  background-color: #28a745;
+  transform: scale(1.05);
+}
+
