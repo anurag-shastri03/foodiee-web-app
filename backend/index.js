@@ -1,26 +1,36 @@
-const express = require('express')
-const app = express()
-const port = 5000
-const mongoDB = require("./db")
+const express = require("express");
+const cors = require("cors");
+const app = express();
+const port = 5000;
+const mongoDB = require("./db");
 
-app.use((req,res,next)=>{
-    res.setHeader("Access-Control-Allow-Origin","http://localhost:3000");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-})
-//app.use(express.json())
-
+// ✅ Connect to MongoDB
 mongoDB();
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-app.use(express.json());
-app.use('/api',require("./Routes/CreateUser"));
-app.use('/api',require("./Routes/DisplayData"));
-app.use('/api',require("./Routes/OrderData"));
+
+// ✅ Fix CORS issue: Allow requests from your Firebase-hosted frontend
+app.use(
+  cors({
+    origin: ["https://foodiee-bb540.web.app"], // Allow Firebase frontend
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+    credentials: true, // Allow cookies & authentication headers
+  })
+);
+
+// ✅ Middleware
+app.use(express.json()); // Allow JSON requests
+
+// ✅ API Routes
+app.use("/api", require("./Routes/CreateUser"));
+app.use("/api", require("./Routes/DisplayData"));
+app.use("/api", require("./Routes/OrderData"));
+
+// ✅ Default Route (Test if backend is running)
+app.get("/", (req, res) => {
+  res.send("Backend is working properly!");
+});
+
+// ✅ Start Server
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Server running on port ${port}`);
+});
