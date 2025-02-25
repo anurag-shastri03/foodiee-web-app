@@ -1,5 +1,6 @@
-import React from 'react';
-import Delete from "@mui/icons-material/Delete";
+import React from 'react'
+import Delete from '@mui/icons-material/Delete'; // ✅ Correct
+
 
 import { useCart, useDispatchCart } from '../components/ContextReducer';
 
@@ -21,9 +22,9 @@ export default function Cart() {
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch("http://localhost:5000/api/orderData", {
+    let response = await fetch("https://foodiee-web-app-backend.onrender.com/api/orderData", {
       // credentials: 'include',
-      // Origin:"http://localhost:3000/login",
+      // Origin:"https://foodiee-bb540.web.app/login",
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

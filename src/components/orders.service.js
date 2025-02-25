@@ -1,11 +1,11 @@
 export class OrderService {
-    static orderUrl = 'http://localhost:5000/api/myOrderData';
+    static orderUrl = 'https://foodiee-web-app-backend.onrender.com/api/myOrderData';
 
     static async fetchMyOrder(payload){
         try{
             const response = await fetch(this.orderUrl, {
                 // credentials: 'include',
-                // Origin:"http://localhost:3000/login",
+                // Origin:"https://foodiee-bb540.web.app/login",
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

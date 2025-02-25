@@ -42,6 +42,10 @@ code {
 .bg-gradient {
   background: linear-gradient(135deg,#28a745, #1ea33d);
 }
+/* Gradient background */
+.bg-gradient {
+  background: linear-gradient(135deg, #007bff, #6610f2);
+}
 
 /* Glassmorphism effect for the card */
 .glass-card {
@@ -52,10 +56,6 @@ code {
   width: 350px;
 }
 
-/* Button hover effect */
-.btn-success {
-  transition: all 0.3s ease-in-out;
-}
 
 .btn-success:hover {
   background-color: #28a745;
